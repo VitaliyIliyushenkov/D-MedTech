@@ -51,7 +51,9 @@ git clone https://github.com/VitaliyIliyushenkov/D-MedTech.git
 venv\Scripts\activate
 pip install -r requirements.txt
 
-3. Создайте файл .env в каталоге с manage.py и перенесите SECRET_KEY, настройки базы данных, и другие чувствительные данные (используйте библиотеку python-decouple):
+3. Создайте базу medical_data и загрузите файл (Restore) medical_data.sql
+
+4. Создайте файл .env в каталоге с manage.py и перенесите SECRET_KEY, настройки базы данных, и другие чувствительные данные (используйте библиотеку python-decouple):
 SECRET_KEY=ваш-секретный-ключ
 DB_NAME=medical_data
 DB_USER=postgres
@@ -62,13 +64,13 @@ DB_PORT=5432
 #Создать ключ:
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
-4. Примените миграции:
+5. Примените миграции:
 python manage.py migrate
 
-5. Установите зависимости React:
+6. Установите зависимости React:
 cd frontend npm install
 
-6. Запустите серверы:
+7. Запустите серверы:
 - Django:
   ```
   cd EBM_project
