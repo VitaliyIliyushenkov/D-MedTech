@@ -1,0 +1,513 @@
+/* Общий стиль компонента PatientsList */
+.patients-list {
+    width: 20%;
+    transition: width 0.3s;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #9be5aa;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.patients-list.collapsed {
+    width: 0px;
+    border-right: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Верхняя панель */
+.patients-list .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.patients-list .header .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.patients-list .header .buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.patients-list .header .buttons button {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Панель поиска */
+.patients-list .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.patients-list .search-bar input {
+    width: 100%;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+/* Список пациентов */
+.patients-list ul {
+    height: 550px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.patients-list ul li {
+    padding: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.patients-list ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.patients-list ul li.selected {
+    background-color: white;
+}
+
+.patients-list ul li.active {
+    background-color: white;
+    color: #000;
+}
+
+/* Форма добавления пациента */
+.patients-list .form-container {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.patients-list .form-container h4 {
+    margin-bottom: 10px;
+}
+
+.patients-list .form-container form div {
+    margin-bottom: 10px;
+}
+
+.patients-list .form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.patients-list .form-container input,
+.patients-list .form-container select {
+    width: 100%;
+    padding: 8px;
+}
+
+.patients-list .form-container button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* Затемняющий фон */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.modal-header {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Тело формы */
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.modal-body div {
+    margin-bottom: 16px;
+}
+
+/* Поля ввода */
+.modal-body textarea,
+.modal-body input,
+.modal-body select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modal-body textarea {
+    resize: vertical;
+    min-height: 60px;
+    max-height: 150px;
+}
+
+.modal-body select {
+    appearance: none;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray"><path fill-rule="evenodd" d="M10 14l-5-5h10l-5 5z" clip-rule="evenodd"/></svg>') no-repeat right 12px center;
+    background-size: 16px 16px;
+}
+
+.modal-body textarea:focus,
+.modal-body select:focus,
+.modal-body input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Кнопки */
+.modal-body button {
+    margin-right: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-body button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-body button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.modal-body button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modal-body button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+.modal-body .primary-button,
+.modal-body .secondary-button {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-body .primary-button {
+    background-color: #007bff;
+    color: white;
+    margin-top: 16px;
+}
+
+.modal-body .primary-button:hover {
+    background-color: #0056b3;
+}
+
+.modal-body .secondary-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal-body .secondary-button:hover {
+    background-color: #218838;
+}
+
+/* Блок предсказания */
+.prediction-results {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    height: 262px;
+}
+
+.prediction-results-wait {
+    height: 262px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.chose-patient-wait {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Кнопка закрытия */
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.modal-close-button:hover {
+    color: #000;
+}
+
+/* Модальное окно */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    max-width: 90%;
+    z-index: 1001;
+}
+
+.modal-content-add{
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    max-width: 90%;
+    z-index: 1002;
+}
+
+.modal-div{
+    width: 50%;
+    height: 350px;
+}
+
+/* Кнопка закрытия модального окна */
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* === Блокировка прокрутки и взаимодействия с элементами === */
+.modal-active {
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.modal-content,
+.modal-close-button {
+    pointer-events: all;
+}
+
+.modal-content-add,
+.modal-close-button {
+    pointer-events: all;
+}
+
+/* === Список пациентов растянут на всю высоту экрана === */
+.patients-scroll {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* === Минимальный стиль для полосы прокрутки === */
+.patients-scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.patients-scroll::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.patients-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #e0e0e0;
+}
+
+/* Для Firefox */
+.patients-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+}
+
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background-color: #9be5aa;
+    border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #e0e0e0;
+}
+
+/* Для Firefox */
+.chat-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #9be5aa transparent;
+}
+
+/* === ChatInterface === */
+.chat-interface {
+    flex: 1;
+    padding: 10px;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chat-header.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.chat-header {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.chat-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.chat-header-button {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* === Visits Styling === */
+.visits-container {
+    height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    background: #f9f9f9;
+}
+
+.visit-block {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.visit-block p {
+    margin: 5px 0;
+}
+
+.visit-date {
+    color: #007bff;
+    font-size: 14px;
+    direction: rtl;
+}
+
+.visit-content {
+    margin: 8px 0 16px 0;
+}
+
+.visit-diagnosis {
+    font-size: 18px;
+    font-weight: bold;
+    margin: -8px 0 8px 0;
+}
+
+.visit-recommendations {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.visit-details p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+/* === Buttons === */
+.add-record-button,
+.delete-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button-rlt{
+    direction: rtl;
+}
+
+.add-record-button {
+    background-color: #007bff;
+    color: white;
+    margin-top: 16px;
+}
+
+.add-record-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
